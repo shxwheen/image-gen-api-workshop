@@ -16,8 +16,8 @@ from utils import client, save_image, OUTPUTS_DIR
 
 
 def get_available_images():
-    """Return a sorted list of PNG images in the outputs directory."""
-    return sorted(OUTPUTS_DIR.glob("*.png"))
+    """Return a sorted list of images in the outputs directory."""
+    return sorted(OUTPUTS_DIR.glob("*.jpeg")) + sorted(OUTPUTS_DIR.glob("*.png"))
 
 
 def pick_image(images):
@@ -50,16 +50,16 @@ def edit_image():
 
     if not images:
         print("  ERROR: No images found in outputs/.")
-        print("  Run one of the generation scripts first (e.g. basic_generation.py).")
+        print("  Run one of the generation scripts first (e.g. generate_logo.py).")
         return
 
     selected = pick_image(images)
     prompt = get_edit_prompt()
 
     stem = selected.stem
-    output_name = f"{stem}_edited.png"
+    output_name = f"{stem}_edited.jpeg"
 
-    print(f"\n🎨 Editing {selected.name}...")
+    print(f"\nEditing {selected.name}...")
 
     with open(selected, "rb") as image_file:
         result = client.images.edit(

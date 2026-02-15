@@ -12,10 +12,10 @@ Whether you're at a hackathon with 10 minutes to spare or validating a new idea 
 
 | Asset | Script | Output |
 |---|---|---|
-| Startup Logo | `generate_logo.py` | `outputs/logo.png` |
-| Landing Page Hero | `generate_hero.py` | `outputs/hero.png` |
-| Product Mockup | `generate_mockup.py` | `outputs/mockup.png` |
-| Prompt Variations | `iterate_prompt.py` | `outputs/variation_*.png` |
+| Startup Logo | `generate_logo.py` | `outputs/logo.jpeg` |
+| Landing Page Hero | `generate_hero.py` | `outputs/hero.jpeg` |
+| Product Mockup | `generate_mockup.py` | `outputs/mockup.jpeg` |
+| Prompt Variations | `iterate_prompt.py` | `outputs/variation_*.jpeg` |
 | All-in-One | `build_startup_assets.py` | All of the above |
 
 ---
@@ -122,5 +122,7 @@ Key parameters used across scripts:
 | `prompt` | string | Detailed text description of the desired image |
 | `size` | `"1024x1024"`, `"1536x1024"`, `"1024x1536"`, `"auto"` | Output dimensions |
 | `quality` | `"low"`, `"medium"`, `"high"`, `"auto"` | Rendering quality |
+| `output_format` | `"png"`, `"jpeg"`, `"webp"` | Output image format |
+| `output_compression` | `0`–`100` | Compression level (for `jpeg` and `webp` formats) |
 
 ---

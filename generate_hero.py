@@ -2,7 +2,7 @@
 Section 4 — Landing Page Hero Image Module
 
 Generates a cinematic SaaS-style marketing hero image
-and saves it to outputs/hero.png.
+and saves it to outputs/hero.jpeg.
 """
 
 from utils import client, save_image
@@ -26,17 +26,19 @@ Mood: Innovation, collaboration, momentum, trust.
 
 
 def generate_hero():
-    """Generate a landing page hero image and save it to outputs/hero.png."""
-    print("\n🖼️  Generating landing page hero image...")
+    """Generate a landing page hero image and save it to outputs/hero.jpeg."""
+    print("\nGenerating landing page hero image...")
 
     result = client.images.generate(
         model="gpt-image-1",
         prompt=HERO_PROMPT,
         size="1536x1024",
         quality="high",
+        output_format="jpeg",
+        output_compression=100,
     )
 
-    save_image(result.data[0].b64_json, "hero.png")
+    save_image(result.data[0].b64_json, "hero.jpeg")
     print("  Hero image generation complete.")
 
 

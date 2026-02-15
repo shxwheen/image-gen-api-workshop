@@ -25,7 +25,7 @@ VARIATIONS = {
             "thin black lines, monospace typography, generous whitespace. "
             "Muted pastel accent colors only. Feels like a Dieter Rams product."
         ),
-        "filename": "variation_minimal.png",
+        "filename": "variation_minimal.jpeg",
     },
     "premium": {
         "suffix": (
@@ -33,7 +33,7 @@ VARIATIONS = {
             "gold and warm amber accent lighting, subtle leather and brushed metal "
             "textures. Feels like a luxury car interior — exclusive and refined."
         ),
-        "filename": "variation_premium.png",
+        "filename": "variation_premium.jpeg",
     },
     "cyberpunk": {
         "suffix": (
@@ -42,14 +42,14 @@ VARIATIONS = {
             "dense urban environment visible in background. High energy, "
             "Blade Runner meets Tokyo at night."
         ),
-        "filename": "variation_cyberpunk.png",
+        "filename": "variation_cyberpunk.jpeg",
     },
 }
 
 
 def iterate_prompt():
     """Generate 3 stylistic variations of the same base prompt."""
-    print("\n🔄 Generating prompt variations...")
+    print("\nGenerating prompt variations...")
 
     for style_name, config in VARIATIONS.items():
         print(f"\n  [{style_name.upper()}]")
@@ -60,6 +60,8 @@ def iterate_prompt():
             prompt=full_prompt,
             size="1536x1024",
             quality="medium",
+            output_format="jpeg",
+            output_compression=100,
         )
 
         save_image(result.data[0].b64_json, config["filename"])
