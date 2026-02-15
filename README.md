@@ -124,7 +124,3 @@ Key parameters used across scripts:
 | `quality` | `"low"`, `"medium"`, `"high"`, `"auto"` | Rendering quality |
 
 ---
-
-## License
-
-MIT — use this for your hackathon, startup, or workshop however you like.
