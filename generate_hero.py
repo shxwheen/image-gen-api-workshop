@@ -27,7 +27,7 @@ Mood: Innovation, collaboration, momentum, trust.
 
 def generate_hero():
     """Generate a landing page hero image and save it to outputs/hero.jpeg."""
-    print("\n🖼️  Generating landing page hero image...")
+    print("\nGenerating landing page hero image...")
 
     result = client.images.generate(
         model="gpt-image-1",

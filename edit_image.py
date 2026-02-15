@@ -59,7 +59,7 @@ def edit_image():
     stem = selected.stem
     output_name = f"{stem}_edited.jpeg"
 
-    print(f"\n🎨 Editing {selected.name}...")
+    print(f"\nEditing {selected.name}...")
 
     with open(selected, "rb") as image_file:
         result = client.images.edit(

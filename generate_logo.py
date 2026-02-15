@@ -23,7 +23,7 @@ Requirements:
 
 def generate_logo():
     """Generate a startup logo and save it to outputs/logo.jpeg."""
-    print("\n🎨 Generating startup logo...")
+    print("\nGenerating startup logo...")
 
     result = client.images.generate(
         model="gpt-image-1",

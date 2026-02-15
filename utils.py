@@ -36,5 +36,5 @@ def save_image(base64_data: str, filename: str) -> Path:
     filepath = OUTPUTS_DIR / filename
     image_bytes = base64.b64decode(base64_data)
     filepath.write_bytes(image_bytes)
-    print(f"  ✔ Saved {filepath}")
+    print(f"  Saved {filepath}")
     return filepath

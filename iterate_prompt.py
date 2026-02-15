@@ -49,7 +49,7 @@ VARIATIONS = {
 
 def iterate_prompt():
     """Generate 3 stylistic variations of the same base prompt."""
-    print("\n🔄 Generating prompt variations...")
+    print("\nGenerating prompt variations...")
 
     for style_name, config in VARIATIONS.items():
         print(f"\n  [{style_name.upper()}]")
