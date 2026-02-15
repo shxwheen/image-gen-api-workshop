@@ -1,12 +1,9 @@
 """
 Section 9 — Advanced Extension: Image Editing
 
-Demonstrates using client.images.edit() to modify an existing generated asset.
-This example takes the hero image (outputs/hero.png) and transforms it into
-a cyberpunk night version.
-
-Prerequisites:
-    Run generate_hero.py first to create outputs/hero.png.
+Demonstrates using client.images.edit() to modify any existing image.
+The script lists available images in outputs/ and lets you pick which one
+to edit and what transformation to apply.
 
 Usage:
     python edit_image.py
@@ -17,38 +14,65 @@ from pathlib import Path
 
 from utils import client, save_image, OUTPUTS_DIR
 
-EDIT_PROMPT = """
-Transform this image into a cyberpunk night scene. Keep the same composition
-and subjects, but change the lighting to neon magenta and cyan. Make it nighttime
-with rain. Add holographic advertisements and glitch effects in the background.
-The overall mood should shift from corporate daytime to Blade Runner night.
-"""
+
+def get_available_images():
+    """Return a sorted list of PNG images in the outputs directory."""
+    return sorted(OUTPUTS_DIR.glob("*.png"))
 
 
-def edit_hero_image():
-    """Edit the existing hero image into a cyberpunk night version."""
-    hero_path = OUTPUTS_DIR / "hero.png"
+def pick_image(images):
+    """Prompt the user to choose an image from the list."""
+    print("\nAvailable images:")
+    for i, img in enumerate(images, 1):
+        print(f"  {i}. {img.name}")
 
-    if not hero_path.exists():
-        print("  ERROR: outputs/hero.png not found.")
-        print("  Run generate_hero.py first to create the base image.")
+    while True:
+        choice = input("\nSelect an image number: ").strip()
+        if choice.isdigit() and 1 <= int(choice) <= len(images):
+            return images[int(choice) - 1]
+        print("  Invalid choice, try again.")
+
+
+def get_edit_prompt():
+    """Ask the user what transformation they want."""
+    print("\nDescribe the edit you want to apply.")
+    print("(e.g. 'Make it a watercolor painting', 'Change to night scene with neon lights')")
+    prompt = input("\nEdit prompt: ").strip()
+    if not prompt:
+        print("  No prompt entered, using default.")
+        prompt = "Transform this image into a cyberpunk night scene with neon lighting and rain."
+    return prompt
+
+
+def edit_image():
+    """Pick an image from outputs/, apply a user-defined edit, and save the result."""
+    images = get_available_images()
+
+    if not images:
+        print("  ERROR: No images found in outputs/.")
+        print("  Run one of the generation scripts first (e.g. basic_generation.py).")
         return
 
-    print("\n🌃 Editing hero image → cyberpunk night version...")
+    selected = pick_image(images)
+    prompt = get_edit_prompt()
 
-    # Read the existing hero image as bytes for the edit endpoint
-    hero_bytes = hero_path.read_bytes()
+    stem = selected.stem
+    output_name = f"{stem}_edited.png"
+
+    print(f"\n🎨 Editing {selected.name}...")
+
+    image_bytes = selected.read_bytes()
 
     result = client.images.edit(
         model="gpt-image-1",
-        image=hero_bytes,
-        prompt=EDIT_PROMPT,
+        image=image_bytes,
+        prompt=prompt,
         size="1536x1024",
     )
 
-    save_image(result.data[0].b64_json, "hero_cyberpunk.png")
-    print("  Image editing complete. Compare hero.png and hero_cyberpunk.png")
+    save_image(result.data[0].b64_json, output_name)
+    print(f"  Done! Compare {selected.name} and {output_name}")
 
 
 if __name__ == "__main__":
-    edit_hero_image()
+    edit_image()
