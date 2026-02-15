@@ -50,7 +50,7 @@ def edit_image():
 
     if not images:
         print("  ERROR: No images found in outputs/.")
-        print("  Run one of the generation scripts first (e.g. basic_generation.py).")
+        print("  Run one of the generation scripts first (e.g. generate_logo.py).")
         return
 
     selected = pick_image(images)
