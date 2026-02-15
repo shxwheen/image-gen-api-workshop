@@ -122,5 +122,7 @@ Key parameters used across scripts:
 | `prompt` | string | Detailed text description of the desired image |
 | `size` | `"1024x1024"`, `"1536x1024"`, `"1024x1536"`, `"auto"` | Output dimensions |
 | `quality` | `"low"`, `"medium"`, `"high"`, `"auto"` | Rendering quality |
+| `output_format` | `"png"`, `"jpeg"`, `"webp"` | Output image format |
+| `output_compression` | `0`–`100` | Compression level (for `jpeg` and `webp` formats) |
 
 ---
