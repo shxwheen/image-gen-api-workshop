@@ -61,14 +61,14 @@ def edit_image():
 
     print(f"\n🎨 Editing {selected.name}...")
 
-    image_bytes = selected.read_bytes()
-
-    result = client.images.edit(
-        model="gpt-image-1",
-        image=image_bytes,
-        prompt=prompt,
-        size="1536x1024",
-    )
+    # DALL-E 2 requires a file object with PNG mimetype (not raw bytes)
+    with open(selected, "rb") as image_file:
+        result = client.images.edit(
+            model="dall-e-2",
+            image=image_file,
+            prompt=prompt,
+            size="1024x1024",
+        )
 
     save_image(result.data[0].b64_json, output_name)
     print(f"  Done! Compare {selected.name} and {output_name}")
