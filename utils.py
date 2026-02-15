@@ -2,7 +2,7 @@
 Shared utilities for the Image Gen API Workshop.
 
 Initializes the OpenAI client and provides a helper for saving
-base64-encoded image responses to PNG files.
+base64-encoded image responses to files.
 """
 
 import base64
@@ -24,11 +24,11 @@ OUTPUTS_DIR.mkdir(exist_ok=True)
 
 
 def save_image(base64_data: str, filename: str) -> Path:
-    """Decode a base64 image string and save it as a PNG file.
+    """Decode a base64 image string and save it to a file.
 
     Args:
         base64_data: The base64-encoded image data from the API response.
-        filename: The output filename (e.g. "logo.png"). Saved into outputs/.
+        filename: The output filename (e.g. "logo.jpeg"). Saved into outputs/.
 
     Returns:
         The full path to the saved file.

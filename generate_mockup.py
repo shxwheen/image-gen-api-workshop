@@ -2,7 +2,7 @@
 Section 5 — Product Mockup Module
 
 Generates a realistic product dashboard mockup image
-and saves it to outputs/mockup.png.
+and saves it to outputs/mockup.jpeg.
 """
 
 from utils import client, save_image
@@ -29,7 +29,7 @@ The overall feel should be "this product already exists and is thriving."
 
 
 def generate_mockup():
-    """Generate a product mockup image and save it to outputs/mockup.png."""
+    """Generate a product mockup image and save it to outputs/mockup.jpeg."""
     print("\n💻 Generating product mockup...")
 
     result = client.images.generate(
@@ -37,9 +37,11 @@ def generate_mockup():
         prompt=MOCKUP_PROMPT,
         size="1536x1024",
         quality="high",
+        output_format="jpeg",
+        output_compression=100,
     )
 
-    save_image(result.data[0].b64_json, "mockup.png")
+    save_image(result.data[0].b64_json, "mockup.jpeg")
     print("  Product mockup generation complete.")
 
 

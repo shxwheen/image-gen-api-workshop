@@ -2,7 +2,7 @@
 Section 3 — Logo Generation Module
 
 Generates a clean, modern startup logo using the GPT Image API
-and saves it to outputs/logo.png.
+and saves it to outputs/logo.jpeg.
 """
 
 from utils import client, save_image
@@ -22,7 +22,7 @@ Requirements:
 
 
 def generate_logo():
-    """Generate a startup logo and save it to outputs/logo.png."""
+    """Generate a startup logo and save it to outputs/logo.jpeg."""
     print("\n🎨 Generating startup logo...")
 
     result = client.images.generate(
@@ -30,9 +30,11 @@ def generate_logo():
         prompt=LOGO_PROMPT,
         size="1024x1024",
         quality="high",
+        output_format="jpeg",
+        output_compression=100,
     )
 
-    save_image(result.data[0].b64_json, "logo.png")
+    save_image(result.data[0].b64_json, "logo.jpeg")
     print("  Logo generation complete.")
 
 

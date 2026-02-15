@@ -12,10 +12,10 @@ Whether you're at a hackathon with 10 minutes to spare or validating a new idea 
 
 | Asset | Script | Output |
 |---|---|---|
-| Startup Logo | `generate_logo.py` | `outputs/logo.png` |
-| Landing Page Hero | `generate_hero.py` | `outputs/hero.png` |
-| Product Mockup | `generate_mockup.py` | `outputs/mockup.png` |
-| Prompt Variations | `iterate_prompt.py` | `outputs/variation_*.png` |
+| Startup Logo | `generate_logo.py` | `outputs/logo.jpeg` |
+| Landing Page Hero | `generate_hero.py` | `outputs/hero.jpeg` |
+| Product Mockup | `generate_mockup.py` | `outputs/mockup.jpeg` |
+| Prompt Variations | `iterate_prompt.py` | `outputs/variation_*.jpeg` |
 | All-in-One | `build_startup_assets.py` | All of the above |
 
 ---
