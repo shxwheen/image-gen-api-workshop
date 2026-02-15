@@ -68,6 +68,7 @@ def edit_image():
             image=image_file,
             prompt=prompt,
             size="1024x1024",
+            response_format="b64_json",
         )
 
     save_image(result.data[0].b64_json, output_name)
