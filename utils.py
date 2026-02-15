@@ -9,7 +9,10 @@ import base64
 import os
 from pathlib import Path
 
+from dotenv import load_dotenv
 from openai import OpenAI
+
+load_dotenv()
 
 # Initialize the client from the OPENAI_API_KEY environment variable.
 # The SDK reads it automatically, but we keep this explicit for clarity.
