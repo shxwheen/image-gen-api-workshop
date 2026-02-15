@@ -1,0 +1,11 @@
+# Generated image outputs
+outputs/*.png
+
+# Python
+__pycache__/
+*.pyc
+.env
+
+# IDE
+.vscode/
+.idea/
