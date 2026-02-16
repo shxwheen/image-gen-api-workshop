@@ -94,22 +94,6 @@ Demonstrates using `client.images.edit()` to modify an existing generated asset 
 
 ---
 
-## Why This Matters for Startups
-
-Generative image APIs fundamentally change the economics of early-stage product development:
-
-- **Rapid MVP Validation** — Test whether a concept resonates visually before writing a single line of product code. Generate landing page assets in minutes, ship a Carrd or Framer site, and measure signup conversion the same day.
-
-- **A/B Testing at Zero Marginal Cost** — Traditional A/B testing of visual assets requires a designer for each variant. With prompt iteration, you can generate dozens of brand directions and let real user data pick the winner.
-
-- **Branding Iteration Without a Design Team** — Early-stage founders can explore logo styles, color palettes, and visual identity on their own. When it's time to hire a designer, you already have a concrete reference point instead of vague descriptions.
-
-- **Reduced Startup Burn Rate** — Design agency retainers or freelance contracts for branding packages typically start at $2K–$10K. API-generated assets cost pennies per image, letting you defer that spend until product-market fit is established.
-
-- **Hackathon Superpower** — In a time-boxed environment, visuals make the difference between a demo that looks like a prototype and one that looks like a product. This workflow gives your team polished assets without pulling anyone off engineering.
-
----
-
 ## API Reference
 
 This workshop uses the [OpenAI Image Generation API](https://platform.openai.com/docs/guides/image-generation) with the `gpt-image-1` model.
