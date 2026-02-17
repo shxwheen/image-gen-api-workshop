@@ -20,6 +20,16 @@ Whether you're at a hackathon with 10 minutes to spare or validating a new idea 
 
 ---
 
+## ChatGPT Web vs API — When to Use Which
+
+| | ChatGPT (Web / App) | API |
+|---|---|---|
+| **Best for** | Exploring ideas, iterating on visuals, generating one-off assets | Image gen inside your product, automation, batch processing |
+| **Example** | "Make me a logo" → tweak style → tweak colors → export | Auto-generate infographics for a study tool |
+| **Strengths** | Visual feedback loop, built-in editing, no code needed | Programmatic, scalable, reproducible, embeddable |
+
+---
+
 ## Prerequisites
 
 - Python 3.9+
